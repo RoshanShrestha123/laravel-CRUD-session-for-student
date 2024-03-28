@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-  $data = Expense::all();
-  return view('welcome', ['expenses' => $data]);
+  return view('welcome', ['expenses' => Expense::all()]);
 });
 
-Route::get('/create', [ExpenseController::class, 'displayCreateForm'])->name('expense.create');
+// GROUP
+Route::get('/create', [ExpenseController::class, 'displayCreateForm']);
 Route::post('/submit-form', function (Request $req) {
   // form bata data lyawo
   $title = $req->title;
@@ -24,5 +24,5 @@ Route::post('/submit-form', function (Request $req) {
   //POST REQUEST
   $exp->save();
 
-  return redirect('/');
+  return redirect(route('expenses.create'));
 });

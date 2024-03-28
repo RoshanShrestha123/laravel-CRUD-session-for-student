@@ -21,7 +21,6 @@
             <div class="mb-3">
               <label class="form-label">Expenses title</label>
               <input type="text" class="form-control" name="title">
-
             </div>
             <div class="mb-3">
               <label class="form-label">Amount</label>

@@ -14,6 +14,10 @@
     <header>
       <h1>Expenses tracker</h1>
     </header>
+    <div>
+      <a class="btn btn-primary" href="/create">Create new Expense</a>
+
+    </div>
     <section>
       <table class="table">
         <thead>
@@ -30,11 +34,11 @@
           @foreach($expenses as $value)
 
           <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{$value['id']}}</th>
             <td>{{$value['title']}}</td>
             <td>{{$value['amount']}}</td>
             <td>{{$value['category']}}</td>
-            <td><button class="btn btn-primary">Edit</button></td>
+            <td><a href="/edit/{{$value['id']}}" class="btn btn-success">Edit</a></td>
             <td><button class="btn btn-danger">Delete</button></td>
           </tr>
 

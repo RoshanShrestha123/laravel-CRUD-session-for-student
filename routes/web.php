@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
   return view('welcome', ['expenses' => Expense::all()]);
 });
-
-// GROUP
 Route::get('/create', [ExpenseController::class, 'displayCreateForm']);
+Route::get('/edit/{id}', function ($id) {
+  $data =  Expense::find($id);
+
+  return view('edit', ['data' => $data]);
+});
 Route::post('/submit-form', function (Request $req) {
   // form bata data lyawo
   $title = $req->title;
@@ -24,5 +27,5 @@ Route::post('/submit-form', function (Request $req) {
   //POST REQUEST
   $exp->save();
 
-  return redirect(route('expenses.create'));
+  return redirect('/');
 });

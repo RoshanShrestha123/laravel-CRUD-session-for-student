@@ -17,7 +17,8 @@
     <section>
       <div class="card">
         <div class="card-body">
-          <form>
+          <form method="post" action="/update/{{$data['id']}}">
+            @csrf()
             <div class="mb-3">
               <label class="form-label">Expenses title</label>
               <input type="text" class="form-control" name="title" value="{{$data['title']}}">

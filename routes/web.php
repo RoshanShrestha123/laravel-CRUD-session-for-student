@@ -15,7 +15,6 @@ Route::get('/edit/{id}', function ($id) {
   return view('edit', ['data' => $data]);
 });
 Route::post('/submit-form', function (Request $req) {
-  // form bata data lyawo
   $title = $req->title;
   $amount = $req->amount;
   $category = $req->category;
@@ -24,8 +23,17 @@ Route::post('/submit-form', function (Request $req) {
   $exp->title = $title;
   $exp->amount = $amount;
   $exp->category = $category;
-  //POST REQUEST
   $exp->save();
+
+  return redirect('/');
+});
+
+Route::post('/update/{id}', function ($id, Request $req) {
+  $data =  Expense::find($id);
+  $data->title = $req->title;
+  $data->amount = $req->amount;
+  $data->category = $req->category;
+  $data->update();
 
   return redirect('/');
 });

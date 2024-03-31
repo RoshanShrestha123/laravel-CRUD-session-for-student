@@ -37,3 +37,11 @@ Route::post('/update/{id}', function ($id, Request $req) {
 
   return redirect('/');
 });
+
+
+Route::get('/delete/{id}', function ($id) {
+  $data =  Expense::find($id);
+  $data->delete();
+
+  return redirect('/');
+});

@@ -39,7 +39,7 @@
             <td>{{$value['amount']}}</td>
             <td>{{$value['category']}}</td>
             <td><a href="/edit/{{$value['id']}}" class="btn btn-success">Edit</a></td>
-            <td><button class="btn btn-danger">Delete</button></td>
+            <td><a href="/delete/{{$value['id']}}" class="btn btn-danger">Delete</a></td>
           </tr>
 
           @endforeach
